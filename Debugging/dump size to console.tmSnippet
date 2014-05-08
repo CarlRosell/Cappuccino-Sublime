@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>console.log("${1:label}: %f, %f", ${2:$1}.width, $2.height);</string>
+	<string>console.log("${1:label}: %f x %f", ${2:$1}.width, $2.height);</string>
 	<key>name</key>
 	<string>dump size to console</string>
 	<key>scope</key>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>console.log("${1:label}: %f, %f", ${2:$1}.x, $2.y);</string>
+	<string>console.log("${1:label}:(%f, %f)", ${2:$1}.x, $2.y);</string>
 	<key>name</key>
 	<string>dump point to console</string>
 	<key>scope</key>
