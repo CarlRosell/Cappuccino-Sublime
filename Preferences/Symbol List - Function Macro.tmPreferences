@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List: Function Macro</string>
+	<key>scope</key>
+	<string>meta.preprocessor.macro.js.objj</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>
+		s/^\s*#define\s+([^( ]+)(\([^)]*\))?.+/#$1$2/;  # extract name and args
+	</string>
+	</dict>
+	<key>uuid</key>
+	<string>E65A721E-192D-4BCC-AD35-5ED5CB0DA5BE</string>
+</dict>
+</plist>
