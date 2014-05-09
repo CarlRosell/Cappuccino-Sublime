@@ -34,10 +34,10 @@ from subprocess import Popen, PIPE, STDOUT
 
 
 class BalanceBracketsCommand(sublime_plugin.TextCommand):
-    PARSER_PATH = "Support/lib/objj_parser.rb"
+    PARSER_PATH = 'Support/lib/objj_parser.rb'
 
     def is_enabled(self):
-        return self.view.settings().get("syntax").endswith("/Objective-J.tmLanguage")
+        return self.view.settings().get('syntax').endswith('/Objective-J.tmLanguage')
 
     def run(self, edit):
         selections = self.view.sel()
@@ -56,15 +56,15 @@ class BalanceBracketsCommand(sublime_plugin.TextCommand):
 
         point = selection.end()
         line = self.view.line(point)
-        os.environ["TM_CURRENT_LINE"] = self.view.substr(line).encode("utf-8")
-        os.environ["TM_LINE_INDEX"] = unicode(self.view.rowcol(point)[1])
-        os.environ["TM_SUPPORT_PATH"] = os.getcwd().encode("utf-8")
-        pipe = Popen(["ruby", os.path.join(self.package_path(), self.PARSER_PATH)], shell=False, stdout=PIPE, stderr=STDOUT).stdout
+        os.environ['TM_CURRENT_LINE'] = self.view.substr(line).encode('utf-8')
+        os.environ['TM_LINE_INDEX'] = unicode(self.view.rowcol(point)[1])
+        os.environ['TM_SUPPORT_PATH'] = os.getcwd().encode('utf-8')
+        pipe = Popen(['ruby', os.path.join(self.package_path(), self.PARSER_PATH)], shell=False, stdout=PIPE, stderr=STDOUT).stdout
         snippet = pipe.read()
         pipe.close()
 
         self.view.erase(edit, line)
-        self.view.run_command("insert_snippet", {"contents": unicode(snippet, "utf-8")})
+        self.view.run_command('insert_snippet', {'contents': unicode(snippet, 'utf-8')})
 
     def package_path(self):
         dataPath = os.path.dirname(sublime.packages_path())
@@ -74,9 +74,9 @@ class BalanceBracketsCommand(sublime_plugin.TextCommand):
     def insert(self, edit, selection):
         # If the selection is empty and the character to the right of the cursor is ']',
         # then replace it, don't insert another one. This is standard ST2 behavior.
-        if selection.empty() and self.view.substr(selection.end()) == "]":
+        if selection.empty() and self.view.substr(selection.end()) == ']':
             selection = sublime.Region(selection.begin(), selection.begin() + 1)
 
         point = selection.begin()
         self.view.erase(edit, selection)
-        self.view.insert(edit, point, "]")
+        self.view.insert(edit, point, ']')
