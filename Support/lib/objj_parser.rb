@@ -234,8 +234,11 @@ end
 
 if __FILE__ == $PROGRAM_NAME
     require "stringio"
-    line = ENV['TM_CURRENT_LINE']
-    caret_placement =ENV['TM_LINE_INDEX'].to_i - 1
+
+    # We get an array of UTF-8 bytes from ENV, convert to a UTF-8 string
+    line = String.new(ENV["TM_CURRENT_LINE"])
+    line.force_encoding(Encoding.find("UTF-8")) if line.encoding.name == "ASCII-8BIT"
+    caret_placement =ENV["TM_LINE_INDEX"].to_i - 1
 
     up = 0
     pat = /"(?:\\.|[^"\\])*"|\[|\]/
