@@ -2,7 +2,7 @@
     // The path to the ruby to use for the Objective-J parser.
     // Should be either a plain name or an absolute path.
     // On Windows be sure to double backslashes in a path.
-    "ruby_path": "/Users/aparajita/.rbenv/shims/ruby",
+    "ruby_path": "ruby",
 
 	// The target application used to lookup symbols. Should be one of
 	// ["dash", "web"]. "dash" is only supported on Mac OS X, and
