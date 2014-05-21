@@ -10,14 +10,14 @@
 
 - (void)set${2/./\u$0/}:($1)aValue
 {
-	$2 = aValue; 
+	$2 = aValue;
 }</string>
 	<key>name</key>
-	<string>accessors</string>
+	<string>getter/setter</string>
 	<key>scope</key>
 	<string>source.js.objj</string>
 	<key>tabTrigger</key>
-	<string>rw</string>
+	<string>gs</string>
 	<key>uuid</key>
 	<string>AA41BEF8-5F81-4A5A-85DE-2E81A112778B</string>
 </dict>

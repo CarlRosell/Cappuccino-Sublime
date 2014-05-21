@@ -6,17 +6,17 @@
 	<string>- (id)initWithFrame:(CGRect)aFrame
 {
     self = [super initWithFrame:aFrame];
-    
+
     if (self)
     {
         $0
     }
-    
+
     return self;
 }
 </string>
 	<key>name</key>
-	<string>method: initWithFrame</string>
+	<string>-initWithFrame method</string>
 	<key>scope</key>
 	<string>source.js.objj</string>
 	<key>tabTrigger</key>

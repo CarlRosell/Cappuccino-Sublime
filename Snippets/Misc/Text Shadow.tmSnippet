@@ -6,7 +6,7 @@
 	<string>[${1:aControl} setTextShadowColor:[CPColor ${2:white}Color]];
 [$1 setTextShadowOffset:CGSizeMake(0.0, ${3:1.0})];</string>
 	<key>name</key>
-	<string>Text Shadow</string>
+	<string>add text shadow to CPControl</string>
 	<key>scope</key>
 	<string>source.js.objj</string>
 	<key>tabTrigger</key>

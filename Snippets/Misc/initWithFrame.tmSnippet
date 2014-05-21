@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>[[${1:Class} alloc] initWithFrame:${2:aFrame}];</string>
 	<key>name</key>
-	<string>initWithFrame</string>
+	<string>-initWithFrame</string>
 	<key>scope</key>
 	<string>source.js.objj</string>
 	<key>tabTrigger</key>

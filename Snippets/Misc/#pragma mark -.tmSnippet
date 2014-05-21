@@ -8,7 +8,7 @@
 	<key>name</key>
 	<string>#pragma mark -</string>
 	<key>tabTrigger</key>
-	<string>pragma</string>
+	<string>mark</string>
 	<key>uuid</key>
 	<string>38775A7C-7BBA-4102-918E-281694DA4249</string>
 </dict>

@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>[${1:parentView} addSubview:${2:view}];</string>
 	<key>name</key>
-	<string>addSubview</string>
+	<string>add subview</string>
 	<key>scope</key>
 	<string>source.js.objj</string>
 	<key>tabTrigger</key>

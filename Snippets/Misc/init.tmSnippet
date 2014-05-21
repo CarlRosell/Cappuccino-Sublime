@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>[[${1:Class} alloc] init];</string>
 	<key>name</key>
-	<string>init</string>
+	<string>-init</string>
 	<key>scope</key>
 	<string>source.js.objj</string>
 	<key>tabTrigger</key>
