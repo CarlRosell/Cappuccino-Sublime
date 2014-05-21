@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: Protocol Method</string>
 	<key>scope</key>
-	<string>meta.scope.interface-or-protocol.js.objj meta.method.js.objj</string>
+	<string>meta.scope.protocol.js.objj meta.method-declaration.js.objj</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>

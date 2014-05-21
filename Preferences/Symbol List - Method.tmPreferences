@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: Method</string>
 	<key>scope</key>
-	<string>meta.scope.implementation.js.objj meta.method.js.objj</string>
+	<string>meta.scope.implementation.js.objj meta.method-declaration.js.objj</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
