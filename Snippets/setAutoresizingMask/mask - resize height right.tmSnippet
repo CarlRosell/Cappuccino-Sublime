@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>[${1:object} setAutoresizingMask:CPViewHeightSizable | CPViewMinXMargin];</string>
 	<key>name</key>
-	<string>mask: resize height right</string>
+	<string>setAutoresizingMask: resize height right</string>
 	<key>scope</key>
 	<string>source.js.objj</string>
 	<key>tabTrigger</key>
