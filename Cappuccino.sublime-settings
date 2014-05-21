@@ -1,16 +1,16 @@
 {
-    // The path to the ruby to use for the Objective-J parser.
-    // Should be either a plain name or an absolute path.
-    // On Windows be sure to double backslashes in a path.
+    /*
+        The path to the ruby to use for the Objective-J parser.
+        Should be either a plain name or an absolute path.
+        On Windows be sure to double backslashes in a path.
+    */
     "ruby_path": "ruby",
 
-	// The target application used to lookup symbols. Should be one of
-	// ["dash", "web"]. "dash" is only supported on Mac OS X, and
-	// will only be used if it is installed. Otherwise "web" is used.
-	"lookup_target": "dash",
+    /*
+        CURRENTLY ONLY "dash" IS SUPPORTED!
 
-	// The base URL to use for web-based documentation lookups. By default
-	// the URL is http://www.cappuccino-project.org/learn/documentation/, but
-	// you can use a local path, e.g. file:///Home/Library/Cappuccino/Documentation/html
-	"base_doc_url": "http://www.cappuccino-project.org/learn/documentation/"
+        The target app used to lookup symbols. Should be "Dash", "web",
+        or the lowercase equivalent.
+    */
+    "lookup_target": "dash",
 }
