@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-# Plugin-balance_brackets.py
+# balance_brackets.py
 #
-# Balances Objective-J brackets.
-#
-# (c) 2011 Aparajita Fishman and licensed under the MIT license.
+# (c) 2014 Aparajita Fishman and licensed under the MIT license.
 # URL: http://github.com/aparajita
 #
 # Permission is hereby granted, free of charge, to any person obtaining
@@ -33,8 +31,8 @@ import sublime_plugin
 import os
 import os.path
 import subprocess
+from . import util
 
-PACKAGE = 'Cappuccino'
 PARSER = 'lib/objj_parser.rb'
 
 
@@ -51,8 +49,8 @@ class BalanceBracketsCommand(sublime_plugin.TextCommand):
         cls.ruby_path = None
         cls.have_parser = False
 
-        path = PACKAGE + '/Cappuccino.sublime-settings'
-        cls.copy_resource(path, 'Cappuccino.sublime-settings', overwrite=False)
+        path = util.PACKAGE + '/Cappuccino.sublime-settings'
+        util.copy_resource(path, 'Cappuccino.sublime-settings', overwrite=False)
 
         version = cls.find_ruby()
 
@@ -92,6 +90,7 @@ class BalanceBracketsCommand(sublime_plugin.TextCommand):
         path = settings.get('ruby_path')
 
         if path:
+            path = os.path.expanduser(path)
             version = cls.ruby_version(path)
 
             if version is not None:
@@ -110,78 +109,9 @@ class BalanceBracketsCommand(sublime_plugin.TextCommand):
         return None
 
     @classmethod
-    def copy_resource(cls, srcpath, dstpath, overwrite=True):
-        """
-        Copy a resource within a package to Packages/User.
-
-        Both paths should be relative paths whose first
-        component is the package name. The directory separator
-        should always be /.
-
-        If the resource already exists in Packages/User and the
-        source resource is not newer, nothing is done. If the source
-        resource is newer, the existing User resource is overwritten
-        if overwrite is True.
-
-        If the resource is copied successfully or already exists,
-        return True.
-
-        This method works with loose packages
-        and .sublime-packages.
-
-        """
-
-        # Try loading the resource
-        resource = sublime.load_resource('Packages/' + srcpath)
-
-        if not resource:
-            print('{}: resource \"{}\" not found'.format(PACKAGE, srcpath))
-            return False
-
-        # Get a real file path to the resource in Packages/User
-        package_name = srcpath.split('/')[0]
-        dst_resource = os.path.join(sublime.packages_path(), 'User', dstpath)
-
-        if os.path.exists(dst_resource):
-            if not overwrite:
-                return True
-
-            # The resource already exists, see if the source version is newer.
-            # If the source package is a .sublime-package, compare its mod time
-            # with the resource.
-            src_resource = os.path.join(sublime.installed_packages_path(), package_name + '.sublime-package')
-            src_mtime = 0
-
-            if os.path.exists(src_resource):
-                src_mtime = os.stat(src_resource).st_mtime
-            else:
-                src_resource = os.path.join(sublime.packages_path(), srcpath)
-
-                if os.path.exists(src_resource):
-                    src_mtime = os.stat(src_resource).st_mtime
-
-            dst_mtime = os.stat(dst_resource).st_mtime
-            should_copy = src_mtime > dst_mtime
-        else:
-            should_copy = True
-
-        if should_copy:
-            dstdir = os.path.dirname(dst_resource)
-
-            if not os.path.exists(dstdir):
-                os.makedirs(dstdir)
-
-            with open(dst_resource, 'w') as f:
-                f.write(resource)
-
-            print('{}: copied resource to {}'.format(PACKAGE, dst_resource))
-
-        return True
-
-    @classmethod
     def copy_parser(cls):
         """Copy the Objective-J parser to Packages/User."""
-        return cls.copy_resource(PACKAGE + '/Support/' + PARSER, PACKAGE + '/' + PARSER)
+        return util.copy_resource(util.PACKAGE + '/Support/' + PARSER, util.PACKAGE + '/' + PARSER)
 
     def is_enabled(self):
         """Return enabled only if editing Objective-J code."""
@@ -251,7 +181,7 @@ class BalanceBracketsCommand(sublime_plugin.TextCommand):
     @staticmethod
     def parser_path():
         """Return the path to the ruby Objective-J parser."""
-        return os.path.join(sublime.packages_path(), 'User', PACKAGE, PARSER)
+        return os.path.join(sublime.packages_path(), 'User', util.PACKAGE, PARSER)
 
     def insert(self, edit, selection):
         """
