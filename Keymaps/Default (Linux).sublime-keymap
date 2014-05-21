@@ -1,6 +1,5 @@
 [
-    // These key equivalents can be modified in your user keyboard bindings
-    { "keys": ["ctrl+alt+d"], "command": "lookup_symbol", "args": {"target": "web"}},
+    // This key equivalent can be modified in your user keyboard bindings
     { "keys": ["ctrl+shift+d"], "command": "lookup_symbol"},
 
     // DO NOT CHANGE OR OVERRIDE THESE!
