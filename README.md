@@ -1,6 +1,8 @@
 # Sublime Text 2 bundle for Cappuccino development
 Based on the TextMate Cappuccino bundle: https://github.com/malkomalko/Cappuccino.tmbundle
 
+**NOTE:** This bundle is for Sublime Text 2. If you are looking for the Sublime Text 3 version, go [here](https://github.com/aparajita/Cappuccino-sublime).
+
 To install with Git, first make sure to remove any old Cappuccino or Objective-J bundles then:
 
     - git clone git://github.com/aparajita/Cappuccino-Sublime.git
