@@ -1,7 +1,7 @@
 Cappuccino support for ST3
 ==========================
 
-[![Build Status](https://travis-ci.org/aparajita/Cappuccino-for-ST3.svg?branch=master)](https://travis-ci.org/aparajita/Cappuccino-for-ST3)
+[![Build Status](https://travis-ci.org/aparajita/Cappuccino-Sublime.svg?branch=master)](https://travis-ci.org/aparajita/Cappuccino-Sublime)
 
 This language bundle for [Sublime Text 3](http://sublimetext.com/3) provides extensive support for [Cappuccino](http://www.cappuccino-project.org), including:
 
@@ -9,6 +9,8 @@ This language bundle for [Sublime Text 3](http://sublimetext.com/3) provides ext
 * Symbol lists which include classes, protocols, methods, macro functions, and Javascript functions
 * Smart balancing of square brackets in message sends
 * Many snippets to reduce typing
+
+**NOTE:** This version is for Sublime Text 3, the Sublime Text 2 version is [here](https://github.com/aparajita/Cappuccino-Sublime/tree/st2).
 
 ## Installation
 Please use [Package Control](https://sublime.wbond.net/installation) to install this bundle. This will ensure that the bundle will be updated when new versions are available. If you want to install from source so you can modify the source code, you probably know what you are doing so we won’t cover that here.
