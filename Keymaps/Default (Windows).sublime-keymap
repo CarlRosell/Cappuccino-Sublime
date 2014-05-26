@@ -12,5 +12,38 @@
         [
             { "key": "selector", "operator": "equal", "operand": "source.js.objj" }
         ]
-    }
+    },
+    /*
+        When enter is pressed, call the command to align colons if:
+
+        - There is one selection.
+        - The selection is empty.
+        - The selection is within a method declaration or message send
+          but not within a string or the first part of a method name.
+        - The selection is followed by an optional word and ":".
+    */
+    { "keys": ["enter"], "command": "align_colons", "args": { "char": "\n" }, "context":
+        [
+            { "key": "num_selections", "operator": "equal", "operand": 1 },
+            { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+            { "key": "selector", "operator": "equal", "operand": "(meta.message-send.js.objj, meta.method-declaration.js.objj) - (entity.name.function.js.objj, string)" },
+            { "key": "following_text", "operator": "regex_contains", "operand": "^[ \\t]*(\\w+[ \\t]*)?:" },
+        ]
+    },
+    /*
+        When : is typed, call the command to align colons if:
+
+        - There is one selection.
+        - The selection is empty.
+        - The selection is within a method declaration or message send
+          but not within a string or the first part of a method name.
+        - The current line does not contain any square brackets before the selection.
+    */
+    { "keys": [":"], "command": "align_colons", "args": { "char": ":" }, "context":
+        [
+            { "key": "num_selections", "operator": "equal", "operand": 1 },
+            { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+            { "key": "selector", "operator": "equal", "operand": "(meta.bracketed.js.objj, meta.method-declaration.js.objj) - (entity.name.function.js.objj, string)" },
+        ]
+    },
 ]

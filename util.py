@@ -201,3 +201,24 @@ def get_container_and_method(view, container, pt):
         return None, None, 'No {} name could be found.'.format(container)
 
     return name, method, None
+
+
+def select_pt(view, pt):
+    """Make the selection of view an empty selection at pt."""
+    view.sel().clear()
+    view.sel().add(sublime.Region(pt, pt))
+
+
+def line_offset(view, pt, expand_tabs=False):
+    """Return the offset of pt within its line, optionally expanding tabs."""
+    line_start = view.line(pt).begin()
+    offset = pt - line_start
+
+    if expand_tabs:
+        line = view.substr(sublime.Region(line_start, pt))
+        tab_count = line.count('\t')
+
+        # Subtract 1 from tab_size because we are replacing 1 character
+        offset += tab_count * (view.settings().get('tab_size', 4) - 1)
+
+    return offset

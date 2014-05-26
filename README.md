@@ -8,6 +8,7 @@ This language bundle for [Sublime Text 3](http://sublimetext.com/3) provides ext
 * Full syntax highlighting for Objective-J source (.j files)
 * Symbol lists which include classes, protocols, methods, macro functions, and Javascript functions
 * Smart balancing of square brackets in message sends
+* Smart alignment of ':' parameter separators
 * Many snippets to reduce typing
 
 **NOTE:** This version is for Sublime Text 3, the Sublime Text 2 version is [here](https://github.com/aparajita/Cappuccino-Sublime/tree/st2).
@@ -49,6 +50,82 @@ var b = [[self ] bar];
 ```
 
 with the cursor just before the first `]`. Very handy!
+
+## Smart ':' alignment
+Here's a common scenario: you want to send the message `doSomething:withOneThing:andAnother:andOneMoreThing:`. You know that it will be easier to read if you split it up into multiple lines. But the Cappuccino/Cocoa coding standard is to align colons on message sends split over multiple lines. You can do this manually, but it’s a pain.
+
+This bundle automatically aligns colons as you type. For example, you start typing:
+
+```objj
+    [self doSomething:something]
+```
+
+Then you press Return and type `withOneThing`. At this point, assuming you have auto indentation on, you will have:
+
+```objj
+    [self doSomething:something
+    withOneThing]
+```
+
+Normally, you would have to back up and insert space in front of `withOneThing` to line up the end of that word with the end of `doSomething` on the line above. But with this bundle, when you type `:`, the line is aligned for you:
+
+```objj
+    [self doSomething:something
+         withOneThing:]
+```
+
+The cursor is after the `:`, so you can keep typing. This also works when typing method declarations, and actually works whenever you type `:` on a line within a method declaration or message send if there are no preceding square brackets on the line.
+
+If you have an existing method declaration or message send that you want to split into multiple lines, you no longer have to manually line up the colons. If you place the cursor anywhere in within a method parameter and press Enter/Return, a colon to the right is aligned with the first colon in the method name.
+
+For example, given this method declaration:
+
+```objj
+- (void)doSomething:(CPString)something withOneThing:(CPObject)oneThing andAnother:(CPArray)another
+```
+
+if you place the cursor before `withOneThing` (or anywhere in the whitespace before it) and press Enter/Return, the line is wrapped to align the colons:
+
+```objj
+- (void)doSomething:(CPString)something
+       withOneThing:(CPObject)oneThing andAnother:(CPArray)another
+```
+
+Note that the anchor point for the align is the colon after the **first** method parameter on the line, so in the example above, if you had placed the cursor before `andAnother`, you would get this:
+
+```objj
+- (void)doSomething:(CPString)something withOneThing:(CPObject)oneThing
+         andAnother:(CPArray)another
+```
+
+Wrapping of existing lines also works with message sends, so given this:
+
+```objj
+    [self doSomething:something withOneThing:one andAnother:another];
+```
+
+if you place the cursor before `withOneThing` (or within the whitespace before it) and press Enter/Return, you get:
+
+```objj
+    [self doSomething:something
+         withOneThing:one andAnother:another];
+```
+
+Note that within message sends, alignment occurs with the closest containing message send, so for example if you are typing this, with the cursor just after `bar` on the second line:
+
+```objj
+    [self doSomething:something withOneThing:one andAnother:[self foo:woo
+    bar]];
+```
+
+when you type `:` you will get this:
+
+```objj
+    [self doSomething:something withOneThing:one andAnother:[self foo:woo
+                                                                  bar:]];
+```
+
+because the alignment is with the closest containing message send.
 
 ## Symbol lookup
 On Mac OS X, this bundle provides documentation lookup for symbols using [Dash](http://kapeli.com/dash). The symbol that is looked up depends on the current selection (or the first selection if there are multiple selections):

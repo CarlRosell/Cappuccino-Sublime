@@ -70,7 +70,7 @@ class LookupSymbolCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         """Run the command."""
-        target = 'dash'  # self.view.settings().get('lookup_target', 'dash')
+        target = 'dash'  # sublime.load_settings('Cappuccino.sublime-settings').get('lookup_target', 'dash')
         msg = self.lookup(target)
 
         if msg:
