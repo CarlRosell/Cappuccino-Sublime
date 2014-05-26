@@ -507,7 +507,7 @@
 								</dict>
 							</dict>
 							<key>match</key>
-							<string>\b[A-Za-z_][A-Za-z0-9_]*(:)</string>
+							<string>\b[A-Za-z_][A-Za-z0-9_]*\s*(:)</string>
 							<key>name</key>
 							<string>invalid.illegal.unknown-method.js.objj</string>
 						</dict>
@@ -598,7 +598,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?=\w)(?&lt;=[\w\])"] )([A-Za-z_][A-Za-z0-9_]*(?:(?=:)|(?=\])))</string>
+					<string>(?=\w)(?&lt;=[\w\])"] )([A-Za-z_][A-Za-z0-9_]*)\s*(:?|(?=\]))</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -606,11 +606,16 @@
 							<key>name</key>
 							<string>entity.name.function.js.objj</string>
 						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.separator.arguments.js.objj</string>
+						</dict>
 					</dict>
 					<key>end</key>
 					<string>(?=\])</string>
 					<key>name</key>
-					<string>meta.function-call.js.objj</string>
+					<string>meta.message-send.js.objj</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -628,7 +633,7 @@
 								</dict>
 							</dict>
 							<key>match</key>
-							<string>\b([A-Za-z_][A-Za-z0-9_]*)(:)</string>
+							<string>\b([A-Za-z_][A-Za-z0-9_]*)\s*(:)</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -877,33 +882,34 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b[A-Za-z_][A-Za-z0-9_]*(?=:)</string>
-					<key>name</key>
-					<string>entity.name.function.name-of-parameter.js.objj</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>((:))\s*(\()</string>
-					<key>beginCaptures</key>
+					<string>\b([A-Za-z_][A-Za-z0-9_]*)\s*(?=:)</string>
+					<key>captures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>entity.name.function.name-of-parameter.js.objj</string>
 						</dict>
-						<key>2</key>
+					</dict>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(:)\s*(\()</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.separator.arguments.js.objj</string>
 						</dict>
-						<key>3</key>
+						<key>2</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.type.js.objj</string>
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\))\s*([A-Za-z_][A-Za-z0-9_]*\b)?</string>
+					<string>(\))(\s*[A-Za-z_][A-Za-z0-9_]*\b)?</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
