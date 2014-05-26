@@ -1,0 +1,9 @@
+If you have recently upgrade to ST3, please note
+that the ST3 version of this bundle has changed
+somewhat and has more features.
+
+Version 1.1.0 adds smart ':' alignment in method
+declarations and message sends. Please see
+the README for more information.
+
+https://github.com/aparajita/Cappuccino-Sublime/blob/master/README.md
