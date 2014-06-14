@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: Banned</string>
 	<key>scope</key>
-	<string>entity.name.type.object.js.firebug, entity.name.type.instance, meta.scope.implementation meta.function.js, meta.function-call.js.objj entity.name.function</string>
+	<string>entity.name.type.object.js.firebug, entity.name.type.instance, meta.scope.implementation meta.function.js, meta.message-send.js.objj entity.name.function</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
