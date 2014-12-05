@@ -23,7 +23,7 @@
 	<array>
 		<dict>
 			<key>match</key>
-			<string>^\s*@(class|global)\b</string>
+			<string>^\s*@(class|global|typedef)\b</string>
 			<key>name</key>
 			<string>keyword.control.forward.js.objj</string>
 		</dict>
