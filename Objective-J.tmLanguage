@@ -1153,7 +1153,7 @@
 		<key>objj_types</key>
 		<dict>
 			<key>match</key>
-			<string>(IB(Outlet|Action)|@(outlet|action)|BOOL|JSO(N|bject)|SEL|id|un(ichar|signed)|IMP|Class)</string>
+			<string>(@(outlet|action)|\b(IB(Outlet|Action)|BOOL|JSO(N|bject)|SEL|id|un(ichar|signed)|IMP|Class)\b)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
