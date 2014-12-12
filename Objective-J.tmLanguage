@@ -222,7 +222,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\W(IB(Outlet|Action)|@(outlet|action)|BOOL|JSO(N|bject)|SEL|id|un(ichar|signed)|IMP|Class)\W</string>
+			<string>\W(IB(Outlet|Action)|@(outlet|action)|BOOL|JSO(N|bject)|SEL|id|un(ichar|signed)|IMP|Class)(?!\])\W</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
